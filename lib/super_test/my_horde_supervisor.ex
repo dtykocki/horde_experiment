@@ -5,8 +5,8 @@ defmodule SuperTest.MyHordeSupervisor do
     Horde.DynamicSupervisor.start_link(__MODULE__, args, name: __MODULE__)
   end
 
-  def init(_args) do
-    Horde.DynamicSupervisor.init(strategy: :one_for_one, members: :auto)
+  def init(args) do
+    Horde.DynamicSupervisor.init(args)
   end
 
   def start_child(name, selector) do

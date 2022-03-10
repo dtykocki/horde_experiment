@@ -10,7 +10,7 @@ defmodule SuperTest.Application do
 
     children = [
       {Horde.Registry, name: SuperTest.Registry, keys: :unique, members: :auto},
-      {Horde.DynamicSupervisor, name: SuperTest.MyHordeSupervisor, strategy: :one_for_one, members: :auto},
+      {SuperTest.MyHordeSupervisor, strategy: :one_for_one, members: :auto},
       {Cluster.Supervisor, [topologies, [name: SuperTest.ClusterSupervisor]]}
     ]
 
