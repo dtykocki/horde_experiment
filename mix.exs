@@ -21,7 +21,7 @@ defmodule SuperTest.MixProject do
   defp deps do
     [
       {:libcluster, "~> 3.3"},
-      {:horde, "~> 0.8.6"}
+      {:horde, path: "../horde"}
     ]
   end
 end
