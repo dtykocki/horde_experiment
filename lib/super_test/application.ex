@@ -10,7 +10,13 @@ defmodule SuperTest.Application do
 
     children = [
       {Horde.Registry, name: SuperTest.Registry, keys: :unique, members: :auto},
-      {SuperTest.MyHordeSupervisor, strategy: :one_for_one, members: :auto},
+      {
+        SuperTest.MyHordeSupervisor,
+          delta_crdt_options: [sync_interval: 1],
+          strategy: :one_for_one,
+          members: :auto,
+          max_restarts: 100, max_seconds: 5
+      },
       {Cluster.Supervisor, [topologies, [name: SuperTest.ClusterSupervisor]]}
     ]
 
