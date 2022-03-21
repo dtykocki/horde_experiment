@@ -21,7 +21,7 @@ defmodule SuperTest.MixProject do
   defp deps do
     [
       {:libcluster, "~> 3.3"},
-      {:horde, path: "../horde"}
+      {:horde, git: "https://github.com/dtykocki/horde", branch: "add-debug-logging"}
     ]
   end
 end
