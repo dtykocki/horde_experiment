@@ -9,7 +9,13 @@ defmodule SuperTest.Application do
     ]
 
     children = [
-      {Horde.Registry, name: SuperTest.Registry, keys: :unique, members: :auto},
+      {
+        Horde.Registry,
+        name: SuperTest.Registry,
+        keys: :unique,
+        members: :auto,
+        delta_crdt_options: [sync_interval: 1]
+      },
       {
         SuperTest.MyHordeSupervisor,
           delta_crdt_options: [sync_interval: 1],

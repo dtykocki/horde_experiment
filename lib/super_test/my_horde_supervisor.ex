@@ -32,7 +32,7 @@ defmodule SuperTest.MyHordeSupervisor do
   end
 
   def delta_crdt_state do
-    DeltaCrdt.read(SuperTest.MyHordeSupervisor.Crdt)
+    DeltaCrdt.to_map(SuperTest.MyHordeSupervisor.Crdt)
   end
 
   def terminate_children do
